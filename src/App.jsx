@@ -1,10 +1,16 @@
 import React from "react";
-import './index.css';
+import "./index.css";
+import Sidebar from "./components/Sidebar";
+import Header from "./components/Header";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
-    <div className="bg-pink-500 text-white text-4xl p-10">
-      ✅ Tailwind Working?
+    <div className="">
+
+      <Sidebar />
+      <Header />
+      <Dashboard />
     </div>
   );
 }

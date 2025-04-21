@@ -6,11 +6,20 @@ import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
-    <div className="">
-
+    <div className="flex h-screen bg-gray-950 text-white">
+      {/* Sidebar */}
       <Sidebar />
-      <Header />
-      <Dashboard />
+
+      {/* Main Content */}
+      <div className="flex flex-col flex-1">
+        {/* Header */}
+        <Header />
+
+        {/* Dashboard area */}
+        <main className="flex-1 overflow-y-auto p-6">
+          <Dashboard />
+        </main>
+      </div>
     </div>
   );
 }

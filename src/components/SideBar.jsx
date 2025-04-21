@@ -35,12 +35,10 @@ const Sidebar = () => {
       } h-full bg-black/90 backdrop-blur-md text-gray-200 shadow-2xl rounded-r-3xl overflow-hidden animate-fadeIn flex flex-col justify-between transition-all duration-500`}
     >
       {/* Brand / Toggle */}
-      <div className="flex items-center justify-between px-6 py-5 border-b border-gray-700">
-        {!collapsed ? (
-          <h1 className="text-2xl font-bold">💸 FinancePro</h1>
-        ) : (
-          <h1 className="text-xl font-bold">💸</h1>
-        )}
+      <div className="h-16 flex items-center justify-between px-6 border-b border-gray-700">
+        <h1 className="text-2xl font-bold">
+          {collapsed ? "💸" : "💸 FinancePro"}
+        </h1>
         <button
           onClick={() => setCollapsed(!collapsed)}
           className="text-gray-400 hover:text-white transition"
@@ -59,13 +57,12 @@ const Sidebar = () => {
             <div
               key={index}
               onClick={() => setActive(item.label)}
-              className={`flex items-center gap-4 px-6 py-3 cursor-pointer transition-all duration-300 rounded-lg relative group ${
+              className={`group relative flex items-center gap-4 px-6 py-3 cursor-pointer rounded-lg transition-all duration-300 ${
                 isActive
                   ? "bg-gradient-to-r from-purple-700 to-indigo-700 text-white shadow-inner"
                   : "hover:bg-gray-800 hover:text-white"
               }`}
             >
-              {/* Glowing bar */}
               {isActive && (
                 <span className="absolute left-0 h-full w-1 bg-indigo-500 rounded-r-sm animate-pulse"></span>
               )}
@@ -80,6 +77,25 @@ const Sidebar = () => {
 
       {/* Bottom nav */}
       <div className="py-4 border-t border-gray-700 space-y-1">
+        {/* User Avatar */}
+        <div className="flex items-center gap-3 px-6 py-3">
+          <div className="relative group transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+            <img
+              src="https://i.pravatar.cc/300?img=3"
+              alt="User Avatar"
+              className="w-10 h-10 rounded-full border-2 border-gray-600"
+            />
+            <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-black rounded-full group-hover:scale-110 transition-transform"></span>
+          </div>
+          {!collapsed && (
+            <div className="flex flex-col">
+              <span className="text-sm font-medium">Shashank</span>
+              <span className="text-xs text-gray-400">Online</span>
+            </div>
+          )}
+        </div>
+
+        {/* Extra Nav */}
         {extraNav.map((item, index) => {
           const Icon = item.icon;
           return (

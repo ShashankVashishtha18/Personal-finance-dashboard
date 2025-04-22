@@ -66,7 +66,10 @@ const Sidebar = () => {
               {isActive && (
                 <span className="absolute left-0 h-full w-1 bg-indigo-500 rounded-r-sm animate-pulse"></span>
               )}
-              <Icon size={20} className="text-gray-400 group-hover:text-white" />
+              <Icon
+                size={20}
+                className="text-gray-400 group-hover:text-white"
+              />
               {!collapsed && (
                 <span className="text-sm font-medium">{item.label}</span>
               )}

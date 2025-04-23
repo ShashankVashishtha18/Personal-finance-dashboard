@@ -43,7 +43,7 @@ src/ ├── components/ │ ├── Sidebar.jsx │ ├── Header.jsx �
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/your-username/finance-dashboard.git
+git clone https://github.com/ShashankVashishtha18/Personal-finance-dashboard.git
 cd finance-dashboard
 npm install
 npm run dev

@@ -1,12 +1,51 @@
-# React + Vite
+# 💸 Personal Finance Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, interactive, and beautifully designed Personal Finance Dashboard built using **React**, **Tailwind CSS**, **Vite**, and **Recharts**. This dashboard helps users visualize income and expenses, track budgets, and analyze spending habits.
 
-Currently, two official plugins are available:
+![Screenshot](https://i.imgur.com/your-screenshot-link.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🧠 Smart Sidebar with active state and animation
+- 📊 Dynamic Dashboard with:
+  - Recent Transactions List
+  - Pie Chart showing Category-wise Breakdown
+  - Budget Tracker Bar (Coming soon)
+  - Insight Panel (Coming soon)
+- 🎨 Fully responsive and dark-themed design
+- 🔎 Search functionality
+- 🔔 Notification ping indicator
+- 👤 Avatar with online status
+- 🔄 Toggleable sidebar
+- 📦 Firebase Ready (Authentication/Firestore integrated)
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📁 Folder Structure
+
+src/ ├── components/ │ ├── Sidebar.jsx │ ├── Header.jsx │ └── Dashboard.jsx ├── services/ │ └── firebase.js ├── App.jsx ├── main.jsx └── index.css
+
+
+---
+
+## 🛠️ Built With
+
+- [React 19](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS v3](https://tailwindcss.com/)
+- [Chart.js](https://www.chartjs.org/) / [Recharts](https://recharts.org/)
+- [Lucide Icons](https://lucide.dev/)
+- [Zustand](https://github.com/pmndrs/zustand)
+- [Firebase](https://firebase.google.com/)
+
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/your-username/finance-dashboard.git
+cd finance-dashboard
+npm install
+npm run dev
+
+

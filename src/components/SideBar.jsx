@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+
+
 import {
   LayoutDashboard,
   Wallet,
@@ -11,11 +13,12 @@ import {
   ChevronRight,
 } from "lucide-react";
 
+import { useRouter } from "next/router"; // NEW
 const mainNav = [
-  { label: "Dashboard", icon: LayoutDashboard },
-  { label: "Transactions", icon: Wallet },
-  { label: "Budgets", icon: PiggyBank },
-  { label: "Settings", icon: Settings },
+  { label: "Dashboard", icon: LayoutDashboard, path: "/dashboard" },
+  { label: "Transactions", icon: Wallet, path: "/transactions"},
+  { label: "Budgets", icon: PiggyBank, path: "/budgets" },
+  { label: "Settings", icon: Settings, path: "/settings" },
 ];
 
 const extraNav = [

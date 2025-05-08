@@ -1,37 +1,3 @@
-"use client";
-
-import React from "react";
-
-const recentTransactions = [
-  {
-    id: 1,
-    name: "Salary",
-    amount: 50000,
-    date: "2025-05-01",
-    category: "Income",
-    type: "Income",
-    icon: "💼",
-  },
-  {
-    id: 2,
-    name: "Groceries",
-    amount: -3500,
-    date: "2025-05-02",
-    category: "Food",
-    type: "Expense",
-    icon: "🛒",
-  },
-  {
-    id: 3,
-    name: "Electricity Bill",
-    amount: -2200,
-    date: "2025-05-03",
-    category: "Utilities",
-    type: "Expense",
-    icon: "💡",
-  },
-];
-
 export default function TransactionsPage() {
   return (
     <div className="p-6">
@@ -73,3 +39,4 @@ export default function TransactionsPage() {
     </div>
   );
 }
+ 

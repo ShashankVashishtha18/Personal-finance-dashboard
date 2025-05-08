@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom"; // ✅ Correct import for Vite + React
 
 import {
   LayoutDashboard,
@@ -13,10 +13,10 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-import { useRouter } from "next/router"; // NEW
+
 const mainNav = [
   { label: "Dashboard", icon: LayoutDashboard, path: "/dashboard" },
-  { label: "Transactions", icon: Wallet, path: "/transactions"},
+  { label: "Transactions", icon: Wallet, path: "/transactions" },
   { label: "Budgets", icon: PiggyBank, path: "/budgets" },
   { label: "Settings", icon: Settings, path: "/settings" },
 ];
@@ -30,6 +30,12 @@ const extraNav = [
 const Sidebar = () => {
   const [active, setActive] = useState("Dashboard");
   const [collapsed, setCollapsed] = useState(false);
+  const navigate = useNavigate(); // ✅ Hook from react-router-dom
+
+  const handleNavigation = (label, path) => {
+    setActive(label);
+    navigate(path);
+  };
 
   return (
     <aside
@@ -59,7 +65,7 @@ const Sidebar = () => {
           return (
             <div
               key={index}
-              onClick={() => setActive(item.label)}
+              onClick={() => handleNavigation(item.label, item.path)}
               className={`group relative flex items-center gap-4 px-6 py-3 cursor-pointer rounded-lg transition-all duration-300 ${
                 isActive
                   ? "bg-gradient-to-r from-purple-700 to-indigo-700 text-white shadow-inner"

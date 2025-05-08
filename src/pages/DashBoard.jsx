@@ -1,6 +1,6 @@
 import React from "react";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
-import InsightsPanel from "./InsightsPanel";
+import InsightsPanel from "../components/InsightsPanel";
 
 const COLORS = [
   "#6366f1",

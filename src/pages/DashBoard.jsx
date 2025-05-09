@@ -142,7 +142,7 @@ const Dashboard = () => {
       </div> */}
 
       {/* Pie Chart Section */}
-      <div className="bg-gradient-to-br from-gray-900 to bg-black p-6 rounded-xl shadow-lg mt-8 ">
+      <div className="bg-gradient-to-br from-gray-900 to bg-black p-6 w-full max-w-full rounded-xl shadow-lg mt-8 ">
         <h3 className="text-lg font-semibold mb-4">Spending Breakdown</h3>
         <ResponsiveContainer width="100%" height={300}>
           <PieChart>

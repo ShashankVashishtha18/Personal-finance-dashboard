@@ -4,29 +4,32 @@ import Sidebar from "./components/SideBar";
 import Header from "./components/Header";
 import Dashboard from "./pages/DashBoard";
 import Transactions from "./pages/Transaction";
-import Budgets from "./pages/Budget";
+import Budget from "./pages/Budget";
 import Settings from "./pages/Settings";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProfilePage from "./pages/ProfilePage";
 import SupportPage from "./pages/SupportPage";
 import LogoutPage from "./pages/LogoutPage";
+import BorrowLendPage from "./pages/BorrowLendPage";
+
 
 function App() {
   return (
       <div className="flex h-screen bg-gray-900 text-white">
         <Sidebar />
-        <div className="flex-1 flex flex-col overflow-hidden">
+        <div className="flex-1 flex flex-col overflow-hidden bg-gray-900">
           <Header />
-          <div/> {/* This div was unclosed */}
+          <div/>
           <main className="flex-1 p-6 overflow-y-auto">
             <Routes>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/transactions" element={<Transactions />} />
-              <Route path="/budgets" element={<Budgets />} />
+              <Route path="/budgets" element={<Budget />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/support" element={<SupportPage />} />
               <Route path="/logout" element={<LogoutPage />} />
+              <Route path="/borrow-lend" element={<BorrowLendPage />} />
               {/* Add other routes as needed */}
             </Routes>
           </main>

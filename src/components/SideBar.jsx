@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ Correct import for Vite + React
+import { useNavigate } from "react-router-dom"; 
 
 import {
   LayoutDashboard,
@@ -11,6 +11,7 @@ import {
   HelpCircle,
   ChevronLeft,
   ChevronRight,
+  HandCoins,
 } from "lucide-react";
 
 
@@ -18,6 +19,7 @@ const mainNav = [
   { label: "Dashboard", icon: LayoutDashboard, path: "/dashboard" },
   { label: "Transactions", icon: Wallet, path: "/transactions" },
   { label: "Budgets", icon: PiggyBank, path: "/budgets" },
+  { label: "Borrow/Lend", icon: HandCoins, path: "/borrow-lend" },
   { label: "Settings", icon: Settings, path: "/settings" },
 ];
 
@@ -41,10 +43,10 @@ const Sidebar = () => {
     <aside
       className={`${
         collapsed ? "w-20" : "w-72"
-      } h-full bg-black/90 backdrop-blur-md text-gray-200 shadow-2xl rounded-r-3xl overflow-hidden animate-fadeIn flex flex-col justify-between transition-all duration-500`}
+      } h-full bg-black/90 backdrop-blur-md text-gray-200 shadow-2xl rounded overflow-hidden animate-fadeIn flex flex-col justify-between transition-all duration-500`}
     >
       {/* Brand / Toggle */}
-      <div className="h-16 flex items-center justify-between px-6 border-b border-gray-700">
+      <div className="h-16 flex items-center justify-between px-6  border-gray-900 bg-black ">
         <h1 className="text-2xl font-bold">
           {collapsed ? "💸" : "💸 FinancePro"}
         </h1>
@@ -88,7 +90,7 @@ const Sidebar = () => {
       </nav>
 
       {/* Bottom nav */}
-      <div className="py-4 border-t border-gray-700 space-y-1">
+      <div className="py-4 border-t border-gray-800 space-y-1">
         {/* User Avatar */}
         <div className="flex items-center gap-3 px-6 py-3">
           <div className="relative group transition-transform duration-300 hover:scale-105 hover:shadow-lg">

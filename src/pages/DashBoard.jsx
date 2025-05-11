@@ -65,8 +65,35 @@ const categoryData = [
   { name: "Rent", value: 15000 },
   { name: "Entertainment", value: 2000 },
   { name: "Subscriptions", value: 999 },
-  { name: "Transpart", value: 3000 },
+  { name: "Transport", value: 3000 },
+
 ];
+
+const categorySpend = {};
+recentTransactions.forEach((tx) => {
+  if (tx.amount < 0) {
+    categorySpend[tx.category] = (categorySpend[tx.category] || 0) + Math.abs(tx.amount);
+  }
+});
+
+
+const sortedCategories = Object.entries(categorySpend)
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 3);
+
+// Sample budgets ( can replace with real data later)
+const budgets = [
+  { category: "Food", budget: 500 },
+  { category: "Grocery", budget: 1000 },
+  { category: "Entertainment", budget: 1500 },
+  { category: "Transport", budget: 500 },
+];
+
+const budgetBreaches = budgets.filter((b) => {
+  const spent = categorySpend[b.category] || 0;
+  return spent > b.budget;
+});
+
 
 const Dashboard = () => {
   return (
@@ -95,52 +122,6 @@ const Dashboard = () => {
         <p className="text-2xl font-bold mt-2 text-white">₹17,000</p>
       </div>
 
-      {/* Insights Panel - Full Width */}
-      {/* <div className="col-span-1 sm:col-span-2 lg:col-span-4 mt-4">
-        <InsightsPanel />
-      </div> */}
-
-      {/* Recent Transactions */}
-      {/* <div className="bg-gradient-to-br from-gray-900 to-black p-6 rounded-xl shadow-inner border border-gray-700 mt-8">
-        <h3 className="text-xl font-semibold mb-4 text-white">
-          Recent Transactions
-        </h3>
-        <ul className="space-y-4">
-          {recentTransactions.map((tx) => (
-            <li
-              key={tx.id}
-              className="flex items-center justify-between px-4 py-4 rounded-lg bg-black/30 backdrop-blur-md hover:bg-black/50 transition-all duration-300 border border-gray-800 shadow-sm"
-            >
-              <div className="flex items-center gap-4">
-                <span className="text-2xl">{tx.icon}</span>
-                <div>
-                  <h4 className="font-medium text-white">{tx.name}</h4>
-                  <div className="flex items-center gap-2 mt-1">
-                    <span className="text-sm text-gray-400">{tx.date}</span>
-                    <span
-                      className={`text-xs px-2 py-0.5 rounded-full font-semibold ${
-                        tx.type === "Income"
-                          ? "bg-green-800 text-green-300"
-                          : "bg-red-800 text-red-300"
-                      }`}
-                    >
-                      {tx.category}
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div
-                className={`text-lg font-bold ${
-                  tx.amount < 0 ? "text-red-400" : "text-green-400"
-                }`}
-              >
-                {tx.amount < 0 ? `-₹${Math.abs(tx.amount)}` : `+₹${tx.amount}`}
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div> */}
-
       {/* Pie Chart Section */}
       <div className="bg-gradient-to-br from-gray-900 to bg-black p-6 w-full max-w-full rounded-xl shadow-lg mt-8 ">
         <h3 className="text-lg font-semibold mb-4">Spending Breakdown</h3>
@@ -166,6 +147,38 @@ const Dashboard = () => {
           </PieChart>
         </ResponsiveContainer>
       </div>
+      {/* Top Spending Categories */}
+      <div className="bg-gradient-to-br from-gray-900 to bg-black p-6 w-full max-w-full rounded-xl shadow-lg mt-8">
+        <h3 className="text-lg font-semibold mb-3 text-white">
+          🔝 Top Spending Categories
+        </h3>
+        {sortedCategories.map(([cat, amount], idx) => (
+          <div
+            key={idx}
+            className="flex justify-between text-sm text-gray-300 mb-2"
+          >
+            <span>{cat}</span>
+            <span className="font-semibold text-red-400">₹{amount}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Budget Breach Alerts */}
+      {budgetBreaches.length > 0 && (
+        <div className="bg-red-800/30 p-6 w-full max-w-full rounded-xl shadow-lg mt-8 text-red-300">
+          <h3 className="text-lg font-semibold mb-2">⚠️ Budget Breaches</h3>
+          <ul className="space-y-1 text-sm">
+            {budgetBreaches.map((b, idx) => (
+              <li key={idx} className="flex justify-between">
+                <span>{b.category}</span>
+                <span>
+                  Spent ₹{categorySpend[b.category]} / ₹{b.budget}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

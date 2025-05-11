@@ -3,7 +3,7 @@ import { Bell, Search } from "lucide-react";
 
 const Header = () => {
   return (
-    <header className="h-16 bg-black text-white px-6 flex items-center justify-between border-b border-gray-700 animate-fadeSlideDown">
+    <header className="h-16 bg-black text-white px-6 flex items-center justify-between border-b border-gray-900 animate-fadeSlideDown">
       {/* Left - Page Title */}
       <h2 className="text-2xl font-semibold tracking-wide">📊 Dashboard</h2>
 

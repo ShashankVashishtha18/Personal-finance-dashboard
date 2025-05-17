@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 import {
   LayoutDashboard,
@@ -24,9 +24,9 @@ const mainNav = [
 ];
 
 const extraNav = [
-  { label: "Profile", icon: User2 },
-  { label: "Support", icon: HelpCircle },
-  { label: "Logout", icon: LogOut },
+  { label: "Profile", icon: User2, path: "/profile" },
+  { label: "Support", icon: HelpCircle, path: "/support" },
+  { label: "Logout", icon: LogOut, path: "/logout" },
 ];
 
 const Sidebar = () => {
@@ -41,14 +41,13 @@ const Sidebar = () => {
 
   return (
     <aside
-      className={`${
-        collapsed ? "w-20" : "w-72"
-      } h-full bg-black/90 backdrop-blur-md text-gray-200 shadow-2xl rounded overflow-hidden animate-fadeIn flex flex-col justify-between transition-all duration-500`}
+      className={`${collapsed ? "w-20" : "w-72"
+        } h-full bg-black/90 backdrop-blur-md text-gray-200 shadow-2xl rounded overflow-hidden animate-fadeIn flex flex-col justify-between transition-all duration-500`}
     >
       {/* Brand / Toggle */}
       <div className="h-16 flex items-center justify-between px-6  border-gray-900 bg-black ">
-        <h1 className="text-2xl font-bold">
-          {collapsed ? "💸" : "💸 FinancePro"}
+        <h1 className="text-2xl font-bold text-gray-200 whitespace-nowrap"> 
+          {collapsed ? "💸" : " 💸FinancePro"}
         </h1>
         <button
           onClick={() => setCollapsed(!collapsed)}
@@ -68,11 +67,10 @@ const Sidebar = () => {
             <div
               key={index}
               onClick={() => handleNavigation(item.label, item.path)}
-              className={`group relative flex items-center gap-4 px-6 py-3 cursor-pointer rounded-lg transition-all duration-300 ${
-                isActive
+              className={`group relative flex items-center gap-4 px-6 py-3 cursor-pointer rounded-lg transition-all duration-300 ${isActive
                   ? "bg-gradient-to-r from-purple-700 to-indigo-700 text-white shadow-inner"
                   : "hover:bg-gray-800 hover:text-white"
-              }`}
+                }`}
             >
               {isActive && (
                 <span className="absolute left-0 h-full w-1 bg-indigo-500 rounded-r-sm animate-pulse"></span>
@@ -109,19 +107,22 @@ const Sidebar = () => {
           )}
         </div>
 
-        {/* Extra Nav */}
         {extraNav.map((item, index) => {
           const Icon = item.icon;
           return (
             <div
               key={index}
-              onClick={() => console.log(`${item.label} clicked`)}
+              onClick={() => {    
+                if (item.path) { // Only navigate if there's a path
+                  handleNavigation(item.label, item.path);
+                } else {
+                  console.log(`${item.label} clicked (no navigation)`);
+                }
+              }}
               className="flex items-center gap-4 px-6 py-2 hover:bg-gray-800 transition-all duration-300 cursor-pointer"
             >
               <Icon size={18} className="text-gray-400" />
-              {!collapsed && (
-                <span className="text-sm font-medium">{item.label}</span>
-              )}
+              {!collapsed && <span className="text-sm font-medium">{item.label}</span>}
             </div>
           );
         })}

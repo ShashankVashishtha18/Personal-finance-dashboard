@@ -13,6 +13,13 @@ import LogoutPage from "./pages/LogoutPage";
 import BorrowLendPage from "./pages/BorrowLendPage";
 
 
+const Homepage = () => {
+  return (
+    <div className="flex h-screen bg-gray-900 text-white" >Hello</div>
+  )
+}
+
+
 function App() {
   return (
       <div className="flex h-screen bg-gray-900 text-white">
@@ -26,11 +33,11 @@ function App() {
               <Route path="/transactions" element={<Transactions />} />
               <Route path="/budgets" element={<Budget />} />
               <Route path="/settings" element={<Settings />} />
-              <Route path="/profile" element={<ProfilePage />} />
               <Route path="/support" element={<SupportPage />} />
               <Route path="/logout" element={<LogoutPage />} />
               <Route path="/borrow-lend" element={<BorrowLendPage />} />
-              {/* Add other routes as needed */}
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/support" element={<SupportPage />} />
             </Routes>
           </main>
         </div>

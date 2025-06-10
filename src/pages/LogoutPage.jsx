@@ -1,14 +1,24 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../services/firebase"; 
 
 const LogoutPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    localStorage.clear();
-    setTimeout(() => {
-      navigate("/dashboard");
-    }, 1000); // Redirect after logout
+    const PerformLogout = async () => {
+      try{
+        await signOut(auth);
+        setTimeout(() => {
+          navigate("/Login");
+        }, 1000);
+      }
+      catch(error){
+        console.error("Logout failed:", error);
+      }
+    }
+    PerformLogout();
   }, [navigate]);
 
   return (

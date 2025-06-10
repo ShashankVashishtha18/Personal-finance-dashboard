@@ -11,6 +11,8 @@ import ProfilePage from "./pages/ProfilePage";
 import SupportPage from "./pages/SupportPage";
 import LogoutPage from "./pages/LogoutPage";
 import BorrowLendPage from "./pages/BorrowLendPage";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 
 const Homepage = () => {
@@ -38,6 +40,8 @@ function App() {
               <Route path="/borrow-lend" element={<BorrowLendPage />} />
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/support" element={<SupportPage />} />
+              <Route path="/login" element={<Login/>} />
+              <Route path="/register" element={<Register/>} />
             </Routes>
           </main>
         </div>

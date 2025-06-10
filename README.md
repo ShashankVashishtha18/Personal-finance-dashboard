@@ -1,8 +1,9 @@
-# 💸 Personal Finance Dashboard
+![image](https://github.com/user-attachments/assets/1fde9f7d-5631-46af-b322-822c12fe6c23)# 💸 Personal Finance Dashboard
 
 A modern, interactive, and beautifully designed Personal Finance Dashboard built using **React**, **Tailwind CSS**, **Vite**, and **Recharts**. This dashboard helps users visualize income and expenses, track budgets, and analyze spending habits.
 
-![Screenshot](https://i.imgur.com/your-screenshot-link.png)
+![Screenshot](![image](https://github.com/user-attachments/assets/c6937670-87d5-40bc-a5ce-e4183d8710d3)
+)
 
 ## 🚀 Features
 
